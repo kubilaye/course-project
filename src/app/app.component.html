@@ -2,8 +2,8 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <app-recipes *ngIf="showRecipes"></app-recipes>
-      <app-shopping-list *ngIf="showShoppingList"></app-shopping-list>
+      <app-recipes *ngIf="selectedMenu === 'recipes'"></app-recipes>
+      <app-shopping-list *ngIf="selectedMenu === 'shopping-list'"></app-shopping-list>
     </div>
   </div>
 </div>

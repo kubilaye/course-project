@@ -16,4 +16,14 @@ export class ShoppingListService {
     this.ingredients.push(newIngr);
     this.ingredientsChanged.emit(this.ingredients.slice());
   }
+
+  addIngredientsToShoppingList(ingredients: Ingredient[]) {
+    /* // this works but has an alternate
+    for (let i = 0; i < ingredients.length; i++) {
+      this.addIngredient(ingredients[i]);
+    }
+    */
+    this.ingredients.push(...ingredients);
+    this.ingredientsChanged.emit(this.ingredients.slice());
+  }
 }

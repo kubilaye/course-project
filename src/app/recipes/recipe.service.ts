@@ -32,6 +32,10 @@ export class RecipeService {
     return this.recipes.slice(); // .slice() is for getting an instance of the array
   }
 
+  getRecipe(index: number) {
+    return this.recipes[index];
+  }
+
   onIngredientsSentToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredientsToShoppingList(ingredients);
   }

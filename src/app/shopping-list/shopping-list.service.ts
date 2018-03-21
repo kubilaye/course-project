@@ -23,6 +23,11 @@ export class ShoppingListService {
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 
+  updateIngredient(index: number, newIngr: Ingredient) {
+    this.ingredients[index] = newIngr;
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     /* // this works but has an alternate
     for (let i = 0; i < ingredients.length; i++) {

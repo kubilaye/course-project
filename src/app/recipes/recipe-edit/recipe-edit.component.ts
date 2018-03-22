@@ -91,13 +91,17 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     );
   }
 
-    onDelete() {
-      this.recipeService.deleteRecipe(this.id);
-      this.router.navigate(['../../'], {relativeTo: this.route});
-    }
+  onDelete() {
+    this.recipeService.deleteRecipe(this.id);
+    this.router.navigate(['../../'], {relativeTo: this.route});
+  }
 
   onCancel() {
     this.router.navigate(['../'], {relativeTo: this.route});
+  }
+
+  onDeleteIngredient(index: number) {
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
   }
 
   ngOnDestroy() {

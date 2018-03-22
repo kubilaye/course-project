@@ -59,8 +59,26 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     });
   }
 
-  onSubmit() {
-    console.log(this.recipeForm);
+  onSubmitRecipeForm() {
+    // solution 1
+    /*const newRecipe = new Recipe(
+      this.recipeForm.value['name'],
+      this.recipeForm.value['description'],
+      this.recipeForm.value['imagePath'],
+      this.recipeForm.value['ingredients'],
+    );*/
+    // better solution
+    const newRecipe = this.recipeForm.value;
+    if (this.editMode) {
+      this.recipeService.updateRecipe(
+        this.id,
+        newRecipe
+      );
+      this.editMode = false;
+    } else {
+      this.recipeService.addRecipe(newRecipe);
+    }
+
   }
 
   onAddIngredient() {

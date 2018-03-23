@@ -7,6 +7,7 @@ import {RecipeEditComponent} from './recipe-edit/recipe-edit.component';
 import {RecipeStartComponent} from './recipe-start/recipe-start.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+import {RecipesRoutingModule} from './recipes-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {CommonModule} from '@angular/common';
   imports: [
     CommonModule, // mandatory for all modules except the app root module
     ReactiveFormsModule,
+    RecipesRoutingModule,
   ],
   // providers: [], // services are better off declared on the root module
 })

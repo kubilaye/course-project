@@ -33,6 +33,11 @@ export class RecipeService {
     return this.recipes.slice(); // .slice() is for getting an instance of the array
   }
 
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes.slice();
+    this.recipesChanged.next(this.recipes);
+  }
+
   getRecipe(index: number) {
     return this.recipes[index];
   }

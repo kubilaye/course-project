@@ -22,9 +22,9 @@ export class DataStorageService {
       'https://ng-recipe-book-tr.firebaseio.com/recipes.json',
     )
       .map(
-        (response: Response) => {
-          const recipes: Recipe[] = response.json();
-          for (let recipe of recipes) {
+        (value: Response, index: number) => {
+          const recipes: Recipe[] = value.json();
+          for (const recipe of recipes) {
             if (!recipe['ingredients']) {
               recipe['ingredients'] = [];
             }

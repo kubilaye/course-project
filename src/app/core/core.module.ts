@@ -3,6 +3,11 @@ import {HeaderComponent} from './header/header.component';
 import {HomeComponent} from './home/home.component';
 import {AppRoutingModule} from '../app-routing.module';
 import {SharedModule} from '../shared/shared.module';
+import {RecipeService} from '../recipes/recipe.service';
+import {ShoppingListService} from '../shopping-list/shopping-list.service';
+import {DataStorageService} from '../shared/data-storage.service';
+import {AuthGuard} from '../auth/auth-guard.service';
+import {AuthService} from '../auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -16,6 +21,13 @@ import {SharedModule} from '../shared/shared.module';
   exports: [
     AppRoutingModule,
     HeaderComponent,
+  ],
+  providers: [
+    ShoppingListService,
+    RecipeService,
+    DataStorageService,
+    AuthService,
+    AuthGuard,
   ]
 })
 export class CoreModule {}

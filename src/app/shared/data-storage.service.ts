@@ -17,6 +17,9 @@ export class DataStorageService {
     return this.httpClient.put(
       'https://ng-recipe-book-tr.firebaseio.com/recipes.json?auth=' + token,
       this.recipeService.getRecipes(),
+      {
+        observe: 'events',
+      },
     );
   }
 
@@ -33,24 +36,21 @@ export class DataStorageService {
         }
       );
       */
-    // this.httpClient.get<Recipe[]>(
-    this.httpClient.get(
+    this.httpClient.get<Recipe[]>(
       'https://ng-recipe-book-tr.firebaseio.com/recipes.json?auth=' + token,
       {
-        observe: 'response', // if we take this out and keep the below, the response will be fetched as a text
-        responseType: 'text', // | blob (for a file) | arraybuffer | json (might be default)
+        observe: 'body',
+        responseType: 'json',
       },
     )
       .map(
         (recipes) => {
-          console.log(recipes);
-          return [];
-          /*for (const recipe of recipes) {
+          for (const recipe of recipes) {
             if (!recipe['ingredients']) {
               recipe['ingredients'] = [];
             }
           }
-          return recipes;*/
+          return recipes;
         }
       )
       .subscribe(

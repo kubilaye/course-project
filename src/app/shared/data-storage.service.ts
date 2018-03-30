@@ -34,7 +34,7 @@ export class DataStorageService {
       );
       */
     // this.httpClient.get<Recipe[]>(
-    this.httpClient.get<Recipe[]>(
+    this.httpClient.get(
       'https://ng-recipe-book-tr.firebaseio.com/recipes.json?auth=' + token,
       {
         observe: 'response', // if we take this out and keep the below, the response will be fetched as a text

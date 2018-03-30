@@ -18,7 +18,7 @@ export class DataStorageService {
       'https://ng-recipe-book-tr.firebaseio.com/recipes.json?auth=' + token,
       this.recipeService.getRecipes(),
       {
-        observe: 'events',
+        observe: 'body',
       },
     );
   }

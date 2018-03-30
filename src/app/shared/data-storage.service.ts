@@ -14,16 +14,12 @@ export class DataStorageService {
 
   storeRecipes(): Observable<any> {
     const token = this.authService.getToken();
-    const headers = new HttpHeaders()
-      .set('Authorization', 'Just a test value') // for overriding
-      .append('blah', 'd\'oh');
 
     return this.httpClient.put(
       'https://ng-recipe-book-tr.firebaseio.com/recipes.json?auth=' + token,
       this.recipeService.getRecipes(),
       {
         observe: 'body',
-        headers: headers,
       },
     );
   }

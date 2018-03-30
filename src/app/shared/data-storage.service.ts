@@ -29,14 +29,12 @@ export class DataStorageService {
       this.recipeService.getRecipes(),
       {
         reportProgress: true,
-        params: new HttpParams().set('auth', token),
+        // params: new HttpParams().set('auth', token), // this is not getting appended using the AuthInterceptor
       });
     return this.httpClient.request(request);
   }
 
   getRecipes() {
-    const token = this.authService.getToken();
-    console.log('https://ng-recipe-book-tr.firebaseio.com/recipes.json?auth=' + token);
     // part below isn't relaible because the token
     // might arrive after we make the next request, causing failure
     /*
@@ -48,7 +46,7 @@ export class DataStorageService {
       );
       */
     this.httpClient.get<Recipe[]>(
-      'https://ng-recipe-book-tr.firebaseio.com/recipes.json?auth=' + token,
+      'https://ng-recipe-book-tr.firebaseio.com/recipes.json',
       {
         observe: 'body',
         responseType: 'json',
